@@ -7,7 +7,11 @@ describe('Park', function() {
   let park;
 
   beforeEach(function () {
-    park = new Park('Jurassic', 20, ['t-rex', 'triceratops', 'velociraptor']);
+    dinosaur1 = new Dinosaur('t-rex', 'carnivore', 50);
+    dinosaur2 = new Dinosaur('triceratops', 'herbivore', 30);
+    dinosaur3 = new Dinosaur('velociraptor', 'carnivore', 70);
+
+    park = new Park('Jurassic', 20, [dinosaur1, dinosaur2]);
   });
 
   it('should have a name', function () {
@@ -22,20 +26,20 @@ describe('Park', function() {
 
   it('should have a collection of dinosaurs', function () {
     const actual = park.collectionOfDinosaurs;
-    assert.deepStrictEqual(actual, ['t-rex', 'triceratops', 'velociraptor'])
+    assert.deepStrictEqual(actual, [dinosaur1, dinosaur2]);
   });
 
 
   it('should be able to add a dinosaur to its collection', function () {
-    park.addDinosaur('brachiosaurus')
+    park.addDinosaur(dinosaur3)
     const actual = park.collectionOfDinosaurs;
-    assert.deepStrictEqual(actual, ['t-rex', 'triceratops', 'velociraptor', 'brachiosaurus'])
+    assert.deepStrictEqual(actual, [dinosaur1, dinosaur2, dinosaur3])
   });
 
   it('should be able to remove a dinosaur from its collection', function () {
-    park.removeDinosaur('velociraptor');
+    park.removeDinosaur(dinosaur2);
     const actual = park.collectionOfDinosaurs;
-    assert.deepStrictEqual(actual, ['t-rex', 'triceratops'])
+    assert.deepStrictEqual(actual, [dinosaur1])
   });
 
   it('should be able to find the dinosaur that attracts the most visitors');
