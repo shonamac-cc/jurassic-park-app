@@ -19,7 +19,34 @@ Park.prototype.mostGuestsAttracted = function () {
       foundDinosaur = dinosaur
     }
   }
-  return foundDinosaur
+  return foundDinosaur.species
+};
+
+Park.prototype.findDinosaurSpecies = function (species) {
+  let foundSpecies = []
+  for (dinosaur of this.collectionOfDinosaurs){
+    if (dinosaur.species === species){
+      foundSpecies.push(dinosaur)
+    }
+  }
+  return foundSpecies
+};
+
+Park.prototype.totalVisitorsDay = function () {
+  let totalVisitors = 0;
+  for (dinosaur of this.collectionOfDinosaurs){
+    totalVisitors += dinosaur.guestsAttractedPerDay;
+  }
+  return totalVisitors;
+};
+
+Park.prototype.totalVisitorsYear = function () {
+  return this.totalVisitorsDay() * 12;
+};
+
+Park.prototype.totalRevenueYear = function () {
+  const daySales = this.totalVisitorsDay() * this.ticketPrice;
+  return daySales * 12;
 };
 
 
