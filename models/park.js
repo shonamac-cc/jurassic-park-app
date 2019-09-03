@@ -45,8 +45,9 @@ Park.prototype.totalVisitorsYear = function () {
 };
 
 Park.prototype.totalRevenueYear = function () {
-  const daySales = this.totalVisitorsDay() * this.ticketPrice;
-  return daySales * 12;
+  // const daySales = this.totalVisitorsDay() * this.ticketPrice;
+  // return daySales * 12;
+  return this.totalVisitorsYear() * this.ticketPrice;
 };
 
 
