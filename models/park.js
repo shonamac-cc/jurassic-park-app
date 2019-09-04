@@ -41,12 +41,12 @@ Park.prototype.totalVisitorsDay = function () {
 };
 
 Park.prototype.totalVisitorsYear = function () {
-  return this.totalVisitorsDay() * 12;
+  return this.totalVisitorsDay() * 365;
 };
 
 Park.prototype.totalRevenueYear = function () {
   // const daySales = this.totalVisitorsDay() * this.ticketPrice;
-  // return daySales * 12;
+  // return daySales * 365;
   return this.totalVisitorsYear() * this.ticketPrice;
 };
 
